@@ -53,4 +53,12 @@ public class DatebookVaadin extends Button {
         getElement().setProperty("height", height==null ? "100%" : height);
     }
 
+    public void setCalendarOptions(BasicConfig config) {
+        getElement().setPropertyJson("calendarOptions", config==null?new BasicConfig().getJson():config.getJson());
+    }
+
+    public void setCalendarAlarm(Alarm alarm) {
+        getElement().setPropertyJson("calendarAlarm", alarm==null?new Alarm().getJson():alarm.getJson());
+    }
+
 }
