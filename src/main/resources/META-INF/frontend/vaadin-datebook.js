@@ -5,30 +5,30 @@ class VaadinDatebook extends LitElement {
 
     constructor() {
         super();
-
-        this.calendarOptions = {
-            title: 'Happy Hour',
-            location: 'The Bar, New York, NY',
-            description: 'Let\'s blow off some steam with a tall cold one!',
-            start: new Date('2021-02-18T23:30:00'),
-            end: new Date('2021-02-18T23:50:00'),
-            // an event that recurs every two weeks:
-            recurrence: {
-                frequency: 'WEEKLY',
-                interval: 2
-            }
-        };
-
-        this.calendarAlarm = {
-            action: 'DISPLAY',
-            trigger: new Date('2021-02-18T23:29:00Z'),
-            description: 'the event description',
-            summary: 'a quick summary',
-            duration: {
-                after: true,
-                minutes: 3
-            }
-        }
+        //
+        // this.calendarOptions = {
+        //     title: 'Happy Hour',
+        //     location: 'The Bar, New York, NY',
+        //     description: 'Let\'s blow off some steam with a tall cold one!',
+        //     start: new Date('2021-02-18T23:30:00'),
+        //     end: new Date('2021-02-18T23:50:00'),
+        //     // an event that recurs every two weeks:
+        //     recurrence: {
+        //         frequency: 'WEEKLY',
+        //         interval: 2
+        //     }
+        // };
+        //
+        // this.calendarAlarm = {
+        //     action: 'DISPLAY',
+        //     trigger: new Date('2021-02-18T23:29:00Z'),
+        //     description: 'the event description',
+        //     summary: 'a quick summary',
+        //     duration: {
+        //         after: true,
+        //         minutes: 3
+        //     }
+        // }
     }
 
     static get properties() {
