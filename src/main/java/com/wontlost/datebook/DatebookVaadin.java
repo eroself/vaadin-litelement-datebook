@@ -38,7 +38,7 @@ public class DatebookVaadin extends Button {
     @Override
     public void setId(String id) {
         this.id = id;
-        getElement().setProperty("id", id==null || id.length()==0? "add2calendar_"+Math.abs(new Random().nextInt()): id);
+        getElement().setProperty("id", id==null || id.length()==0? "datebook_"+Math.abs(new Random().nextInt()): id);
     }
 
     @Override
