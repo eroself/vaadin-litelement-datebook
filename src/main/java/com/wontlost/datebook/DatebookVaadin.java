@@ -11,17 +11,11 @@ import java.util.Optional;
 @JsModule("./vaadin-datebook.js")
 public class DatebookVaadin extends Button {
 
-    /**
-     * id will be override to 'video' if set From.camera
-     */
     public DatebookVaadin() {
         setId("datebook");
         setText("Add to calendar");
     }
 
-    /**
-     * id will be override to 'video' if set From.camera
-     */
     public DatebookVaadin(@NotNull String text) {
         setId("datebook");
         setText(text);
