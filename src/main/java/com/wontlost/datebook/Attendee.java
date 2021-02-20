@@ -3,6 +3,8 @@ package com.wontlost.datebook;
 import elemental.json.JsonObject;
 import elemental.json.impl.JreJsonFactory;
 
+import java.util.Optional;
+
 public class Attendee {
 
     private String name;
@@ -13,9 +15,12 @@ public class Attendee {
 
     JsonObject getJson() {
         JsonObject attendeeResult = new JreJsonFactory().createObject();
-        attendeeResult.put("name", getName());
-        attendeeResult.put("email", getEmail());
-        attendeeResult.put("icsOption", getIcsOption().getJson());
+        if(getName() != null)
+            attendeeResult.put("name", getName());
+        attendeeResult.put("email", Optional.of(getEmail()).orElse(""));
+        if(getIcsOption()!=null) {
+            attendeeResult.put("icsOption", getIcsOption().getJson());
+        }
         return attendeeResult;
     }
 

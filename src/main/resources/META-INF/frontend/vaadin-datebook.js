@@ -45,6 +45,8 @@ class VaadinDatebook extends LitElement {
     }
 
     clickHandler(event) {
+        this.calendarOptions.start = new Date(this.calendarOptions.start);
+        this.calendarOptions.end = new Date(this.calendarOptions.end);
         const icalendar = new Datebook.ICalendar(this.calendarOptions);
         icalendar.addAlarm(this.calendarAlarm).render();
         icalendar.download();

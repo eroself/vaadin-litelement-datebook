@@ -1,19 +1,22 @@
 package com.wontlost.datebook;
 
-import elemental.json.Json;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import elemental.json.JsonObject;
 import elemental.json.impl.JreJsonFactory;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public class BasicConfig {
 
     private String title;
 
-    private Date start;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss")
+    private LocalDateTime start;
 
-    private Date end;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss")
+    private LocalDateTime end;
 
     private String location;
 
@@ -24,12 +27,17 @@ public class BasicConfig {
     private List<Attendee> attendees;
 
     JsonObject getJson() {
+        LocalDateTime date = LocalDateTime.now();
         JsonObject configResult = new JreJsonFactory().createObject();
-        configResult.put("title", getTitle());
-        configResult.put("start", getStart().toString());
-        configResult.put("end", getEnd().toString());
-        configResult.put("location", getLocation());
-        configResult.put("description", getDescription());
+        if(getTitle() != null)
+            configResult.put("title", getTitle());
+        configResult.put("start", Optional.of(getStart().toString()).orElse(date.toString()));
+        configResult.put("end", Optional.of(getEnd().toString())
+                .orElse(DatebookUtil.someTime(date, 1, 0, 0).toString()));
+        if(getLocation() != null)
+            configResult.put("location", getLocation());
+        if(getDescription() != null)
+            configResult.put("description", getDescription());
 //        configResult.put("recurrence", /*recurrence.getJson()*/Json.createObject());
 //        configResult.put("attendees", Json.createArray().);
         return configResult;
@@ -43,19 +51,19 @@ public class BasicConfig {
         this.title = title;
     }
 
-    public Date getStart() {
+    public LocalDateTime getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(LocalDateTime start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public LocalDateTime getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(LocalDateTime end) {
         this.end = end;
     }
 

@@ -3,6 +3,8 @@ package com.wontlost.datebook;
 import elemental.json.JsonObject;
 import elemental.json.impl.JreJsonFactory;
 
+import java.util.Optional;
+
 public class Attach {
 
     private String params;
@@ -11,8 +13,10 @@ public class Attach {
 
     JsonObject getJson() {
         JsonObject attachResult = new JreJsonFactory().createObject();
-        attachResult.put("params", getParams());
-        attachResult.put("url", getUrl());
+        if(getParams() != null)
+            attachResult.put("params", getParams());
+        if(getUrl() != null)
+            attachResult.put("url", getUrl());
         return attachResult;
     }
 

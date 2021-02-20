@@ -3,6 +3,8 @@ package com.wontlost.datebook;
 import elemental.json.JsonObject;
 import elemental.json.impl.JreJsonFactory;
 
+import java.util.Optional;
+
 public class Alarm {
 
     private Action action;
@@ -21,17 +23,24 @@ public class Alarm {
 
     JsonObject getJson() {
         JsonObject alarmResult = new JreJsonFactory().createObject();
-        alarmResult.put("action", getAction().name());
-        alarmResult.put("description", getDescription());
-        alarmResult.put("summary", getSummary());
-        alarmResult.put("duration", getDuration().getJson());
+        alarmResult.put("action", Optional.of(getAction().name()).orElse(Action.DISPLAY.name()));
+        alarmResult.put("description", Optional.of(getDescription()).orElse(""));
+        alarmResult.put("summary", Optional.of(getSummary()).orElse(""));
+        if(getDuration() != null) {
+            alarmResult.put("duration", getDuration().getJson());
+        }
         if(getTrigger().getDate() != null) {
             alarmResult.put("trigger", getTrigger().getDate().toString());
         } else {
             alarmResult.put("trigger", getTrigger().getDuration().getJson());
         }
-        alarmResult.put("repeat", getRepeat());
-        alarmResult.put("attach", getAttach().getJson());
+        if(getRepeat() != null) {
+            alarmResult.put("repeat", getRepeat());
+        }
+
+        if(getAttach()!=null) {
+            alarmResult.put("attach", getAttach().getJson());
+        }
         return alarmResult;
     }
 
@@ -75,11 +84,11 @@ public class Alarm {
         this.trigger = trigger;
     }
 
-    public int getRepeat() {
+    public Integer getRepeat() {
         return repeat;
     }
 
-    public void setRepeat(int repeat) {
+    public void setRepeat(Integer repeat) {
         this.repeat = repeat;
     }
 

@@ -5,74 +5,80 @@ import elemental.json.impl.JreJsonFactory;
 
 public class Duration {
 
-    private boolean after;
+    private Boolean after;
 
-    private int weeks;
+    private Integer weeks;
 
-    private int days;
+    private Integer days;
 
-    private int hours;
+    private Integer hours;
 
-    private int minutes;
+    private Integer minutes;
 
-    private int seconds;
+    private Integer seconds;
 
     public JsonObject getJson() {
         JsonObject durationResult = new JreJsonFactory().createObject();
-        durationResult.put("after", isAfter());
-        durationResult.put("weeks", getWeeks());
-        durationResult.put("days", getDays());
-        durationResult.put("hours", getHours());
-        durationResult.put("minutes", getMinutes());
-        durationResult.put("seconds", getSeconds());
+        if(isAfter() != null)
+            durationResult.put("after", isAfter());
+        if(getWeeks() != null)
+            durationResult.put("weeks", getWeeks());
+        if(getDays() != null)
+            durationResult.put("days", getDays());
+        if(getHours() != null)
+            durationResult.put("hours", getHours());
+        if(getMinutes() != null)
+            durationResult.put("minutes", getMinutes());
+        if(getSeconds() != null)
+            durationResult.put("seconds", getSeconds());
         return durationResult;
     }
 
-    public boolean isAfter() {
+    public Boolean isAfter() {
         return after;
     }
 
-    public void setAfter(boolean after) {
+    public void setAfter(Boolean after) {
         this.after = after;
     }
 
-    public int getWeeks() {
+    public Integer getWeeks() {
         return weeks;
     }
 
-    public void setWeeks(int weeks) {
+    public void setWeeks(Integer weeks) {
         this.weeks = weeks;
     }
 
-    public int getDays() {
+    public Integer getDays() {
         return days;
     }
 
-    public void setDays(int days) {
+    public void setDays(Integer days) {
         this.days = days;
     }
 
-    public int getHours() {
+    public Integer getHours() {
         return hours;
     }
 
-    public void setHours(int hours) {
+    public void setHours(Integer hours) {
         this.hours = hours;
     }
 
-    public int getMinutes() {
+    public Integer getMinutes() {
         return minutes;
     }
 
-    public void setMinutes(int minutes) {
+    public void setMinutes(Integer minutes) {
         this.minutes = minutes;
     }
 
-    public int getSeconds() {
+    public Integer getSeconds() {
         return seconds;
     }
 
-    public void setSeconds(int seconds) {
+    public void setSeconds(Integer seconds) {
         this.seconds = seconds;
     }
 }

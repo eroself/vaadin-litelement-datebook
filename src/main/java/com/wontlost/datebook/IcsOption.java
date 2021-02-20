@@ -11,17 +11,22 @@ public class IcsOption {
 
     private String role;
 
-    private boolean rsvp;
+    private Boolean rsvp;
 
     private String sentBy;
 
     JsonObject getJson() {
         JsonObject icsOptionResult = new JreJsonFactory().createObject();
-        icsOptionResult.put("delegatedFrom", getDelegatedFrom());
-        icsOptionResult.put("partStat", getPartStat());
-        icsOptionResult.put("role", getRole());
-        icsOptionResult.put("rsvp", isRsvp());
-        icsOptionResult.put("sentBy", getSentBy());
+        if(getDelegatedFrom() != null)
+            icsOptionResult.put("delegatedFrom", getDelegatedFrom());
+        if(getPartStat() != null)
+            icsOptionResult.put("partStat", getPartStat());
+        if(getRole() != null)
+            icsOptionResult.put("role", getRole());
+        if(isRsvp() != null)
+            icsOptionResult.put("rsvp", isRsvp());
+        if(getSentBy() != null)
+            icsOptionResult.put("sentBy", getSentBy());
         return icsOptionResult;
     }
 
@@ -49,11 +54,11 @@ public class IcsOption {
         this.role = role;
     }
 
-    public boolean isRsvp() {
+    public Boolean isRsvp() {
         return rsvp;
     }
 
-    public void setRsvp(boolean rsvp) {
+    public void setRsvp(Boolean rsvp) {
         this.rsvp = rsvp;
     }
 

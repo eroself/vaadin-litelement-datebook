@@ -1,6 +1,6 @@
 package com.wontlost.datebook;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Recurrence {
 
@@ -10,7 +10,7 @@ public class Recurrence {
 
     private int count;
 
-    private Date end;
+    private LocalDateTime end;
 
     private Weekday[] weekdays;
 
