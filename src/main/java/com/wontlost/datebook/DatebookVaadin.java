@@ -21,12 +21,6 @@ public class DatebookVaadin extends Button {
         setText(text);
     }
 
-    @Override
-    public void setText(String text) {
-        super.setText(text);
-        getElement().setProperty("buttonText", Optional.of(text).orElse("Add to calendar"));
-    }
-
     public void setCalendarOptions(BasicConfig config) {
         getElement().setPropertyJson("calendarOptions", config==null?new BasicConfig().getJson():config.getJson());
     }
