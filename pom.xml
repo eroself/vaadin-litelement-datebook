@@ -14,7 +14,7 @@
         <developerConnection>scm:git:git@https://github.com/eroself/vaadin-litelement-datebook.git</developerConnection>
     </scm>
     <properties>
-        <vaadin.version>14.4.7</vaadin.version>
+        <vaadin.version>14.4.8</vaadin.version>
         <vaadin-applayout-addon.version>4.0.a.rc5</vaadin-applayout-addon.version>
 
         <maven.compiler.source>11</maven.compiler.source>
