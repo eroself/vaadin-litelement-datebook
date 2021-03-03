@@ -5,7 +5,7 @@
 
     <groupId>com.wontlost</groupId>
     <artifactId>datebook-vaadin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>DatebookVaadin</name>
     <description>Datebook for Vaadin 14</description>
     <scm>
