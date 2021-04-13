@@ -3,12 +3,13 @@ package com.wontlost.datebook;
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 
 import javax.validation.constraints.NotNull;
-import java.util.Optional;
 
 @Tag("vaadin-datebook")
 @JsModule("./vaadin-datebook.js")
+@NpmPackage(value = "datebook", version = "^6.5.1")
 public class DatebookVaadin extends Button {
 
     public DatebookVaadin() {
