@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Tag("vaadin-datebook")
 @JsModule("./vaadin-datebook.js")
-@NpmPackage(value = "datebook", version = "^6.5.1")
+@NpmPackage(value = "datebook", version = "^7.0.8")
 public class DatebookVaadin extends Button {
 
     public DatebookVaadin() {
